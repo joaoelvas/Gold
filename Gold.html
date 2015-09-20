@@ -1,0 +1,215 @@
+<!--
+This is an Academic Project, and was published after finishing the lecture.
+@author Joao Elvas @ FCT/UNL
+-->
+
+<html>
+
+<head>
+<title>Linguagens e Ambientes de Programação (2014/2015) [Eng.Inf. - DI/FCT/UNL] - 3º projeto prático (Javascript)</title>
+
+<script TYPE="text/javascript" src="Gold0.js"></script>
+<script TYPE="text/javascript" src="Gold.js"></script>
+
+<style>
+
+	label, p {
+		color: white;
+	}
+
+	.tg  {
+		border-collapse:collapse;
+		border-spacing:0;
+		margin:0px auto;
+	}
+	.tg td{
+		font-family:Arial, sans-serif;
+		font-size:14px;
+		padding:10px 5px;
+		border-style:solid;
+		border-width:1px;
+		overflow:hidden;
+		word-break:normal;
+	}
+	.tg th{
+		font-family:Arial, sans-serif;
+		font-size:14px;
+		font-weight:normal;
+		padding:10px 5px;
+		border-style:solid;
+		border-width:1px;
+		overflow:hidden;
+		word-break:normal;
+	}
+
+	.redButton {
+		-moz-box-shadow:inset 0px 39px 0px -24px #e67a73;
+		-webkit-box-shadow:inset 0px 39px 0px -24px #e67a73;
+		box-shadow:inset 0px 39px 0px -24px #e67a73;
+		background-color:#e4685d;
+		-moz-border-radius:4px;
+		-webkit-border-radius:4px;
+		border-radius:4px;
+		border:1px solid #ffffff;
+		display:inline-block;
+		cursor:pointer;
+		color:#ffffff;
+		font-family:Arial;
+		font-size:15px;
+		padding:6px 69px;
+		text-decoration:none;
+		text-shadow:0px 1px 0px #b23e35;
+		width: 100%;
+		height:100%
+	}
+	.redButton:hover {
+		background-color:#d35c54;
+	}
+	.redButton:active {
+		position:relative;
+		top:1px;
+	}
+
+	.yellowButton {
+		-moz-box-shadow:inset 0px 1px 0px 0px #fff6af;
+		-webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;
+		box-shadow:inset 0px 1px 0px 0px #fff6af;
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23));
+		background:-moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+		background:-webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+		background:-o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+		background:-ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+		background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
+		background-color:#ffec64;
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		border-radius:6px;
+		border:1px solid #ffaa22;
+		display:inline-block;
+		cursor:pointer;
+		color:#333333;
+		font-family:Arial;
+		font-size:13px;
+		font-weight:bold;
+		padding:6px 7px;
+		text-decoration:none;
+		text-shadow:0px 1px 0px #ffee66;
+		width: 100%;
+		height:100%;
+	}
+	.yellowButton:hover {
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64));
+		background:-moz-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+		background:-webkit-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+		background:-o-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+		background:-ms-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+		background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64',GradientType=0);
+		background-color:#ffab23;
+	}
+	.yellowButton:active {
+		position:relative;
+		top:1px;
+	}
+
+	#tableRow {
+		padding: 0;
+	}
+
+	#canvas1 {
+		border: 1px solid #000000;
+	}
+
+</style>
+
+
+</head>
+
+<body bgcolor= "#323232" onload="onLoad()">
+
+	<table class="tg">
+		<tr>
+			<th class="tg-031e" rowspan="2">
+				<p>
+		    		<b>Gold!!!</b>
+		    	</p>
+			</th>
+			<th class="tg-031e" colspan="4">
+				<p>Ana Barata (41605)</p>
+			</th>
+		</tr>
+		<tr>
+			<th class="tg-031e" colspan="4">
+				<p>Joao Elvas (41934)</p>
+			</th>
+		</tr>
+		<tr>
+			<th class="tg-031e" bgcolor= "#ffffff" rowspan="6">
+				<canvas id="canvas1" width="630" height="420" >
+					Your browser doesn't support the HTML5 CANVAS tag.
+				</canvas> <br />
+			</th>
+			<th class="tg-031e" colspan="4">
+				<label>Lives:</label>	<label id="lives_val">0</label><br/>
+			</th>
+		</tr>
+		<tr>
+			<th class="tg-031e" colspan="2">
+				<label>Points:</label>	<label id="points_val">0</label><br/>
+			</th>
+			<th class="tg-031e" colspan="2">
+				<label>Time:</label>	<label id="time_val">0</label><br/>
+			</th>
+		</tr>
+		<tr>
+			<th class="tg-031e" colspan="2">
+				<label>Bricks:</label>	<label id="bricks_val">0</label><br/>
+			</th>
+			<th class="tg-031e" colspan="2">
+				<label>Gold:</label>	<label id="gold_val">0</label><br/>
+			</th>
+		</tr>
+		<tr>
+			<th class="tg-031e" colspan="4">
+				<INPUT TYPE="button" CLASS= "redButton" NAME="button1" VALUE="Restart the game" SIZE=10 OnClick="restartTheGameButton()">
+			</th>
+		</tr>
+		<tr>
+			<th class="tg-031e" colspan="2">
+				<INPUT TYPE="button" CLASS= "yellowButton" NAME="button2" VALUE="Speed Down" SIZE=10 OnClick="speedDownButton()">
+			</th>
+			<th class="tg-031e" colspan="2">
+				<INPUT TYPE="button" CLASS= "yellowButton" NAME="button2" VALUE="Speed Up" SIZE=10 OnClick="speedUpButton()">
+			</th>
+		</tr>
+		<tr>
+			<th class="tg-031e">
+				<INPUT TYPE="button" CLASS= "yellowButton" NAME="button2" VALUE="2" SIZE=10 OnClick="lvlTwoButton()">
+			</th>
+			<th class="tg-031e">
+				<INPUT TYPE="button" CLASS= "yellowButton" NAME="button3" VALUE="3" SIZE=10 OnClick="lvlThreeButton()">
+			</th>
+			<th class="tg-031e">
+				<INPUT TYPE="button" CLASS= "yellowButton" NAME="button4" VALUE="4" SIZE=10 OnClick="lvlFourButton()">
+			</th>
+			<th class="tg-031e">
+				<INPUT TYPE="button" CLASS= "yellowButton" NAME="button5" VALUE="5" SIZE=10 OnClick="lvlFiveButton()">
+			</th>
+		</tr>
+	</table>
+
+	
+	<form NAME="form1">
+		
+
+
+
+
+			
+	</form>
+</body>
+
+</html>
+<!-- código inicial de AMD/2015 -->
+<!-- vim:set ts=4 sw=4 et: -->
